@@ -135,7 +135,7 @@ void selectionSort(int* rentp, int property) // sorts the data in descending ord
 	int i = 0;
 	cout << "Rent data sorted in ascending order:\n\n";
 	for (i = 0; i < property; i++) {
-		cout << left << "$" << (rentp[i]) << endl;
+		cout << left << "$" << *(rentp + i) << endl;
 	}
 	system("pause");
 	cout << "\n";
@@ -151,7 +151,7 @@ void displayMemoryLocations(int *rentp, int properties) // displays the memory l
 	}
 }
 
-void enterRents(int* rentp, int property) // function to enter the data
+void enterRents(int* rentp, int pro) // function to enter the data
 {
 
 	cout << "Enter number of properties: \n";
@@ -161,7 +161,7 @@ void enterRents(int* rentp, int property) // function to enter the data
 	{
 
 		cout << "Property " << count << ": $";
-		cin >> *(rent + i);
+		cin >> *(rentp + i);
 
 	}
 	cout << endl;
@@ -173,15 +173,15 @@ void displayRents(int *rentp, int property) // shows all the current data, using
 	cout << "List of current rent incomes: \n";
 	for (int d = 0; d < property; d++)
 	{
-		cout << "$" << *(rent + d) << endl;
+		cout << "$" << *(rentp + d) << endl;
 	}
 }
-int sumRents(int* rent, int property) // Calculate sum, using pointers
+int sumRents(int* rentp, int property) // Calculate sum, using pointers
 {
 	int d, sum = 0;
 	for (d = 0; d < property; d++)
 	{
-		sum = sum + *(rent + d);
+		sum = sum + *(rentp + d);
 
 	}
 	return sum;
